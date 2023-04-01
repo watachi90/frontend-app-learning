@@ -12,13 +12,13 @@ import { useModel } from '../../generic/model-store';
 import genericMessages from '../../generic/messages';
 import messages from './messages';
 
-const Section = ({
+function Section({
   courseId,
   defaultOpen,
   expand,
   intl,
   section,
-}) => {
+}) {
   const {
     complete,
     sequenceIds,
@@ -38,7 +38,6 @@ const Section = ({
 
   useEffect(() => {
     setOpen(defaultOpen);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const sectionTitle = (
@@ -74,7 +73,7 @@ const Section = ({
   return (
     <li>
       <Collapsible
-        className="mb-2"
+        className="withbrd"
         styling="card-lg"
         title={sectionTitle}
         open={open}
@@ -110,7 +109,7 @@ const Section = ({
       </Collapsible>
     </li>
   );
-};
+}
 
 Section.propTypes = {
   courseId: PropTypes.string.isRequired,

@@ -7,7 +7,7 @@ import { sendTrackingLogEvent } from '@edx/frontend-platform/analytics';
 import messages from '../messages';
 import { useModel } from '../../../generic/model-store';
 
-const StartOrResumeCourseCard = ({ intl }) => {
+function StartOrResumeCourseCard({ intl }) {
   const {
     courseId,
   } = useSelector(state => state.courseHome);
@@ -56,11 +56,10 @@ const StartOrResumeCourseCard = ({ intl }) => {
         )}
       />
       {/* Footer is needed for internal vertical spacing to work out. If you can remove, be my guest */}
-      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <Card.Footer><></></Card.Footer>
     </Card>
   );
-};
+}
 
 StartOrResumeCourseCard.propTypes = {
   intl: intlShape.isRequired,

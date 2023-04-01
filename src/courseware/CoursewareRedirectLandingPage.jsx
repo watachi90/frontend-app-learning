@@ -7,7 +7,7 @@ import { PageRoute } from '@edx/frontend-platform/react';
 import queryString from 'query-string';
 import PageLoading from '../generic/PageLoading';
 
-const CoursewareRedirectLandingPage = () => {
+export default () => {
   const { path } = useRouteMatch();
   return (
     <div className="flex-grow-1">
@@ -50,5 +50,3 @@ const CoursewareRedirectLandingPage = () => {
     </div>
   );
 };
-
-export default CoursewareRedirectLandingPage;

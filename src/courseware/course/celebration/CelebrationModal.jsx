@@ -9,7 +9,6 @@ import {
   useWindowSize,
 } from '@edx/paragon';
 
-import { useDispatch } from 'react-redux';
 import ClapsMobile from './assets/claps_280x201.gif';
 import ClapsTablet from './assets/claps_456x328.gif';
 import messages from './messages';
@@ -17,18 +16,16 @@ import SocialIcons from '../../social-share/SocialIcons';
 import { recordFirstSectionCelebration } from './utils';
 import { useModel } from '../../../generic/model-store';
 
-const CelebrationModal = ({
+function CelebrationModal({
   courseId, intl, isOpen, onClose, ...rest
-}) => {
-  const { org, celebrations } = useModel('courseHomeMeta', courseId);
-  const dispatch = useDispatch();
+}) {
+  const { org } = useModel('courseHomeMeta', courseId);
   const wideScreen = useWindowSize().width >= breakpoints.small.minWidth;
 
   useEffect(() => {
     if (isOpen) {
-      recordFirstSectionCelebration(org, courseId, celebrations, dispatch);
+      recordFirstSectionCelebration(org, courseId);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   return (
@@ -62,7 +59,7 @@ const CelebrationModal = ({
       </>
     </StandardModal>
   );
-};
+}
 
 CelebrationModal.propTypes = {
   courseId: PropTypes.string.isRequired,

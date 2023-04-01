@@ -11,16 +11,15 @@ import messages from './messages';
 import { recordWeeklyGoalCelebration } from './utils';
 import { useModel } from '../../../generic/model-store';
 
-const WeeklyGoalCelebrationModal = ({
+function WeeklyGoalCelebrationModal({
   courseId, daysPerWeek, intl, isOpen, onClose, ...rest
-}) => {
+}) {
   const { org } = useModel('courseHomeMeta', courseId);
 
   useEffect(() => {
     if (isOpen) {
       recordWeeklyGoalCelebration(org, courseId);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   return (
@@ -58,21 +57,19 @@ const WeeklyGoalCelebrationModal = ({
             className="mr-2"
             style={{ height: '21px', width: '22px' }}
           />
-          <div>
-            <FormattedMessage
-              id="learning.celebration.setGoal"
-              defaultMessage="Setting a goal can help you {strongText} in your course."
-              description="It explain the advantages of setting goal"
-              values={{
-                strongText: (<strong>achieve higher performance</strong>),
-              }}
-            />
-          </div>
+          <FormattedMessage
+            id="learning.celebration.setGoal"
+            defaultMessage="Setting a goal can help you {strongText} in your course."
+            description="It explain the advantages of setting goal"
+            values={{
+              strongText: (<strong>achieve higher performance</strong>),
+            }}
+          />
         </div>
       </>
     </StandardModal>
   );
-};
+}
 
 WeeklyGoalCelebrationModal.propTypes = {
   courseId: PropTypes.string.isRequired,

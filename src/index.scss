@@ -361,6 +361,197 @@
   box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, .2) !important;
 }
 
+.btn-brand {
+  background-color: #3fa9f5 !important;
+  border-color: #3fa9f5 !important;
+  outline: none !important;
+}
+
+.btn-brand:hover {
+  background-color: #80D5FB !important;
+  border-color: #80D5FB !important;
+}
+
+.btn-brand:focus{
+  outline: none !important;
+}
+
+.btn-brand.focus::before, 
+.btn-brand:focus::before,
+.btn-primary.focus::before, 
+.btn-primary:focus::before{
+  border: none !important;
+}
+
+.pgn__checkpoint{
+  border-top: 8px solid #ed6c4d !important;
+}
+
+.btn-primary{
+  background-color: #3fa9f5 !important;
+  border-color: #3fa9f5 !important;
+}
+
+.btn-primary:hover{
+  background-color: #80D5FB !important;
+  border-color: #80D5FB !important;
+}
+
+.nav-underline-tabs .nav-link {
+  background-color: lightgray;
+  color: white !important;
+  border-right: 1px solid white;
+  font-weight: normal;
+  font-family: Inter,Helvetica Neue,Arial,sans-serif !important;
+}
+
+.nav-underline-tabs .nav-link.active, .nav-underline-tabs .nav-link:focus, .nav-underline-tabs .nav-link:hover {
+  border-bottom: 0px;
+  background-color: #ed6c4d;
+  font-weight: normal;
+}
+
+.course-tabs-navigation {
+  border-bottom: 2px solid #ed6c4d;
+}
+
+.bg-negro, .learning-header {
+  background-color: #303030 !important;
+}
+
+div[data-testid="instructor-toolbar"] {
+  margin-bottom: 50px;
+}
+
+div[data-testid="instructor-toolbar"] .row {
+  justify-content: end;
+  margin: 0 !important;
+}
+
+.course-title-lockup{
+  color: white
+}
+
+.learning-header {
+  color: white !important;
+  border-bottom: 4px solid #3fa9f5;
+  font-family: Inter,Helvetica Neue,Arial,sans-serif;
+}
+
+#root header .logo {
+  height: 100%;
+  top: 0;
+}
+
+#root header .container-xl {
+  padding: 0 15px 0 0 !important;
+}
+
+.btn-inverse-outline-primary,
+.btn-brand{
+  background-color: #3fa9f5 !important;
+  border-color: #3fa9f5 !important;
+}
+
+.dropdown .btn-inverse-outline-primary
+{
+  background-color: transparent !important;
+  border-color: #3fa9f5;
+}
+
+.btn-outline-primary {
+  background-color: #3fa9f5 !important;
+  border-color: #3fa9f5 !important;
+  color: white !important;
+}
+
+.btn-inverse-outline-primary:hover, 
+.btn-brand:hover,
+.btn-outline-primary:hover
+ {
+  background-color: #80d5fb !important;
+  border-color: #80d5fb !important;
+  color: white !important;
+  outline: none !important;
+}
+
+div[data-testid="dropdown"] button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #3fa9f5;
+}
+
+.learning-header .text-gray-700.mr-3 {
+  background-color: #3fa9f5;
+  padding: 5px 15px;
+  border-radius: 4px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: white !important;
+}
+
+#main-content .container-xl .row.w-100.mx-0.my-3.justify-content-between {
+  border-bottom: 2px solid #3fa9f5;
+}
+
+.raised-card {
+  box-shadow: none !important;
+  background-color: lightgray;
+}
+
+.course-outline-tab .col-md-4 {
+  border: 2px solid #3fa9f5;
+  padding: 20px;
+  height: fit-content;
+  margin-bottom: 40px;
+}
+
+.withbrd {
+  border: 1px solid #3fa9f5 !important;
+  margin-bottom: -1px !important;
+}
+
+.btn-icon.btn-icon-primary {
+  color: #3fa9f5 !important;
+}
+.btn-icon.btn-icon-primary.active, .btn-icon.btn-icon-primary.hover, .btn-icon.btn-icon-primary:active, .btn-icon.btn-icon-primary:hover {
+  background-color: transparent !important;
+}
+
+.btn-icon.btn-icon-primary.focus, .btn-icon.btn-icon-primary:focus {
+  outline: none !important;
+  background-color: transparent;
+  color: #3fa9f5 !important;
+  box-shadow: none !important;
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  filter: invert(52%) sepia(99%) saturate(358%) hue-rotate(166deg) brightness(95%) contrast(101%);
+}
+
+.badge.badge-primary,
+.bg-warning-300.dates-dot,
+.popover.bs-popover-bottom.bg-primary-500 {
+  background-color: #3fa9f5 !important;
+}
+
+#minimum-grade-tooltip .arrow::after {
+  border-bottom-color: #3fa9f5 !important;
+}
+
+.grade-bar .grade-bar--passing {
+  fill: #3fa9f5 !important;
+}
+
+.donut-chart-text {
+  fill: #3fa9f5 !important;
+}
+
+
+
+
+
+
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/notifications/NotificationIcon.scss";
@@ -377,3 +568,6 @@
 @import "course-home/progress-tab/grades/course-grade/GradeBar.scss";
 @import "courseware/course/course-exit/CourseRecommendations";
 @import "product-tours/newUserCourseHomeTour/NewUserCourseHomeTourModal.scss";
+
+/** [MM-P2P] Experiment */
+@import "experiments/mm-p2p/index.scss";

@@ -168,16 +168,18 @@ function render(
     ...renderOptions
   } = {},
 ) {
-  const Wrapper = ({ children }) => (
-    // eslint-disable-next-line react/jsx-filename-extension
-    <IntlProvider locale="en">
-      <AppProvider store={store || globalStore}>
-        <UserMessagesProvider>
-          {children}
-        </UserMessagesProvider>
-      </AppProvider>
-    </IntlProvider>
-  );
+  function Wrapper({ children }) {
+    return (
+      // eslint-disable-next-line react/jsx-filename-extension
+      <IntlProvider locale="en">
+        <AppProvider store={store || globalStore}>
+          <UserMessagesProvider>
+            {children}
+          </UserMessagesProvider>
+        </AppProvider>
+      </IntlProvider>
+    );
+  }
 
   Wrapper.propTypes = {
     children: PropTypes.node.isRequired,

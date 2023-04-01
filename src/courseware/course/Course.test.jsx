@@ -11,7 +11,6 @@ import Course from './Course';
 jest.mock('@edx/frontend-platform/analytics');
 
 const recordFirstSectionCelebration = jest.fn();
-// eslint-disable-next-line no-import-assign
 celebrationUtils.recordFirstSectionCelebration = recordFirstSectionCelebration;
 
 describe('Course', () => {
@@ -117,10 +116,10 @@ describe('Course', () => {
     render(<Course {...mockData} />);
     expect(sessionStorage.getItem(`notificationTrayStatus.${mockData.courseId}`)).toBe('"open"');
     const notificationShowButton = await screen.findByRole('button', { name: /Show notification tray/i });
-    expect(screen.queryByRole('region', { name: /notification tray/i })).not.toHaveClass('d-none');
+    expect(screen.queryByRole('region', { name: /notification tray/i })).toBeInTheDocument();
     fireEvent.click(notificationShowButton);
     expect(sessionStorage.getItem(`notificationTrayStatus.${mockData.courseId}`)).toBe('"closed"');
-    expect(screen.queryByRole('region', { name: /notification tray/i })).toHaveClass('d-none');
+    expect(screen.queryByRole('region', { name: /notification tray/i })).not.toBeInTheDocument();
   });
 
   it('handles reload persisting notification tray status', async () => {
@@ -225,10 +224,11 @@ describe('Course', () => {
   describe('Sequence alerts display', () => {
     it('renders banner text alert', async () => {
       const courseMetadata = Factory.build('courseMetadata');
-      const sequenceBlocks = [Factory.build('block', { type: 'sequential', banner_text: 'Some random banner text to display.' })];
+      const sequenceBlocks = [Factory.build(
+        'block', { type: 'sequential', banner_text: 'Some random banner text to display.' },
+      )];
       const sequenceMetadata = [Factory.build(
-        'sequenceMetadata',
-        { banner_text: sequenceBlocks[0].banner_text },
+        'sequenceMetadata', { banner_text: sequenceBlocks[0].banner_text },
         { courseId: courseMetadata.id, sequenceBlock: sequenceBlocks[0] },
       )];
 
